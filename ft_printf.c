@@ -41,6 +41,8 @@ int	handle_specifier(char specifier, va_list args)
 		return (print_hex(va_arg(args, unsigned int), 0));
 	else if (specifier == 'X')
 		return (print_hex(va_arg(args, unsigned int), 1));
+	else if (specifier == 'p')
+		return (print_pointer(va_arg(args, void *)));
 	else if (specifier == '%')
 	{
 		write(1, "%", 1);

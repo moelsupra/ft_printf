@@ -56,3 +56,22 @@ int print_hex(unsigned long n, int uppercase)
 	count++;
 	return (count);
 }
+
+int print_pointer(void *ptr)
+{
+	int count;
+	unsigned long addr;
+
+	count = 0;
+	if (!ptr)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	addr = (unsigned long)ptr;
+	write(1, "0x", 2);
+	count = 2;
+	count += print_hex(addr, 0);
+	return (count);
+}
+
