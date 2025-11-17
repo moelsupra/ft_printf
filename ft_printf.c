@@ -1,29 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: moelamma <moelamma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/17 22:36:13 by moelamma          #+#    #+#             */
+/*   Updated: 2025/11/17 22:46:14 by moelamma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
-
-
-int	print_char(int c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
-int	print_str(char *s)
-{
-	int	count;
-
-	count = 0;
-	if (!s)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	while (s[count] != '\0')
-	{
-		write(1, &s[count], 1);
-		count++;
-	}
-	return (count);
-}
 
 int	handle_specifier(char specifier, va_list args)
 {
@@ -58,8 +45,8 @@ int	handle_specifier(char specifier, va_list args)
 
 int	ft_printf(const char *str, ...)
 {
-	int	count;
-	int	i;
+	int		count;
+	int		i;
 	va_list	args;
 
 	i = 0;
@@ -71,9 +58,9 @@ int	ft_printf(const char *str, ...)
 		{
 			i++;
 			if (str[i] == '\0')
-				break;
+				break ;
 			count += handle_specifier(str[i], args);
-		} 
+		}
 		else
 		{
 			write(1, &str[i], 1);
@@ -84,5 +71,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
-
-
