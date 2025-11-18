@@ -6,7 +6,7 @@
 /*   By: moelamma <moelamma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 22:36:02 by moelamma          #+#    #+#             */
-/*   Updated: 2025/11/17 22:38:55 by moelamma         ###   ########.fr       */
+/*   Updated: 2025/11/18 21:28:21 by moelamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int	print_char(int c)
 {
-	write(1, &c, 1);
+	unsigned char	ch;
+
+	ch = (unsigned char)c;
+	write(1, &ch, 1);
 	return (1);
 }
 

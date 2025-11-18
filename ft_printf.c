@@ -6,7 +6,7 @@
 /*   By: moelamma <moelamma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 22:36:13 by moelamma          #+#    #+#             */
-/*   Updated: 2025/11/18 12:54:12 by moelamma         ###   ########.fr       */
+/*   Updated: 2025/11/18 21:23:58 by moelamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ int	ft_printf(const char *str, ...)
 		}
 		i++;
 	}
-	return (va_end(args) ,count);
+	return (va_end(args), count);
 }
