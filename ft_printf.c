@@ -6,7 +6,7 @@
 /*   By: moelamma <moelamma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 22:36:13 by moelamma          #+#    #+#             */
-/*   Updated: 2025/11/17 23:04:07 by moelamma         ###   ########.fr       */
+/*   Updated: 2025/11/18 12:54:12 by moelamma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ int	ft_printf(const char *str, ...)
 
 	i = 0;
 	count = 0;
+	if (!str || write(1, 0, 0) < 0)
+		return (-1);
 	va_start(args, str);
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
 		{
-			i++;
-			if (str[i] == '\0')
+			if (str[++i] == '\0')
 				break ;
 			count += handle_specifier(str[i], args);
 		}
@@ -37,6 +38,5 @@ int	ft_printf(const char *str, ...)
 		}
 		i++;
 	}
-	va_end(args);
-	return (count);
+	return (va_end(args) ,count);
 }
