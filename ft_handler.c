@@ -54,6 +54,5 @@ int	handle_specifier(char specifier, va_list args)
 	if (res != -1)
 		return (res);
 	write(1, "%", 1);
-	write(1, &specifier, 1);
-	return (2);
+	return (1);
 }
